@@ -1,0 +1,1 @@
+{"version":3,"sources":["config.js"],"names":[],"mappings":";;AAAA,MAAM,CAAC,OAAO,GAAG;AACb,YAAQ,EAAE,OAAO,CAAC,GAAG,CAAC,SAAS,IAAI,eAAe;CACrD,CAAC","file":"config-compiled.js","sourcesContent":["module.exports = {\n    database: process.env.MONGO_URI || 'localhost/nef'\n};"]}
