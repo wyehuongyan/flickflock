@@ -25,6 +25,7 @@
     "compression": "^1.6.0",
     "express": "^4.13.3",
     "history": "^1.13.0",
+    "lapanoid-react-youtube": "^5.0.2",
     "mongoose": "^4.2.5",
     "morgan": "^1.6.1",
     "react": "^0.14.2",
