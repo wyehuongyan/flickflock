@@ -28,6 +28,7 @@
     "lapanoid-react-youtube": "^5.0.2",
     "mongoose": "^4.2.5",
     "morgan": "^1.6.1",
+    "peer": "^0.2.8",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
     "react-router": "^1.0.0",
