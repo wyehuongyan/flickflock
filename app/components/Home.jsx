@@ -205,7 +205,7 @@ class Home extends React.Component {
         return (
             <div className="form-group">
                 <label htmlFor="share-url">Share this with your friend</label>
-                <input type="text" className="form-control input-lg" id="share-url" value={this.state.shareUrl} />
+                <input type="text" className="form-control input-lg" id="share-url" value={this.state.shareUrl} readOnly />
             </div>
         );
     }

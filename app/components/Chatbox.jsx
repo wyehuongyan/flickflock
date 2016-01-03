@@ -12,6 +12,11 @@ class Chatbox extends React.Component {
     componentDidMount() {
         ChatboxStore.listen(this.onChange); // listen to the store
 
+        ChatboxActions.handleConnections({
+            'conn': this.props.conn,
+            'peer': this.props.peer
+        });
+
         this.scrollToBottom();
     }
 

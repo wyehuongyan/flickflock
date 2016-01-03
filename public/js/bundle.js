@@ -152,6 +152,11 @@ var Chatbox = (function (_React$Component) {
         value: function componentDidMount() {
             _ChatboxStore2.default.listen(this.onChange); // listen to the store
 
+            _ChatboxActions2.default.handleConnections({
+                'conn': this.props.conn,
+                'peer': this.props.peer
+            });
+
             this.scrollToBottom();
         }
     }, {
@@ -596,7 +601,7 @@ var Home = (function (_React$Component) {
                     { htmlFor: 'share-url' },
                     'Share this with your friend'
                 ),
-                _react2.default.createElement('input', { type: 'text', className: 'form-control input-lg', id: 'share-url', value: this.state.shareUrl })
+                _react2.default.createElement('input', { type: 'text', className: 'form-control input-lg', id: 'share-url', value: this.state.shareUrl, readOnly: true })
             );
         }
     }, {
