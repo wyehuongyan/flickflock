@@ -1275,8 +1275,8 @@ var Home = (function (_React$Component) {
             );
         }
     }, {
-        key: 'renderForm',
-        value: function renderForm() {
+        key: 'renderBanner',
+        value: function renderBanner() {
             return _react2.default.createElement(
                 'div',
                 { className: 'embed-responsive embed-responsive-16by9' },
@@ -1285,23 +1285,41 @@ var Home = (function (_React$Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-8 col-xs-offset-2' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'well video-form form' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'form-group' },
-                                _react2.default.createElement(
-                                    'label',
-                                    { htmlFor: 'video-url' },
-                                    'Paste Youtube Link'
-                                ),
-                                _react2.default.createElement('input', { type: 'text', ref: 'messageTextField', className: 'form-control input-lg', id: 'video-url', placeholder: '(e.g. https://www.youtube.com/watch?v=IJNR2EpS0jw)', value: this.state.url, onChange: _HomeActions2.default.updateUrl })
-                            ),
-                            this.state.url != '' ? this.renderSharingForm() : null
-                        )
+                        { className: 'col-xs-10 col-xs-offset-1' },
+                        _react2.default.createElement('img', { className: 'banner-title', src: '/img/flick_flock_web_banner_title.png' })
                     )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-10 col-xs-offset-1' },
+                        _react2.default.createElement('img', { className: 'banner', src: '/img/flick_flock_web_banner.png' })
+                    )
+                )
+            );
+        }
+    }, {
+        key: 'renderForm',
+        value: function renderForm() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'col-xs-8 col-lg-offset-2' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'video-form form' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                            'label',
+                            { htmlFor: 'video-url' },
+                            'Paste Youtube Link'
+                        ),
+                        _react2.default.createElement('input', { type: 'text', ref: 'messageTextField', className: 'form-control input-lg', id: 'video-url', placeholder: '(e.g. https://www.youtube.com/watch?v=IJNR2EpS0jw)', value: this.state.url, onChange: _HomeActions2.default.updateUrl })
+                    ),
+                    this.state.url != '' ? this.renderSharingForm() : null
                 )
             );
         }
@@ -1317,6 +1335,19 @@ var Home = (function (_React$Component) {
                     'Share this with your friend'
                 ),
                 _react2.default.createElement('input', { type: 'text', className: 'form-control input-lg', id: 'share-url', value: this.state.shareUrl })
+            );
+        }
+    }, {
+        key: 'renderChat',
+        value: function renderChat() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'control-panel' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-12 chat-box' },
+                    _react2.default.createElement(_Chatbox2.default, { peer: this.state.peer, conn: this.state.conn })
+                )
             );
         }
     }, {
@@ -1340,7 +1371,7 @@ var Home = (function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'col-xs-8 video-frame' },
-                        this.state.readyToPlay ? this.renderVideo() : this.renderForm()
+                        this.state.readyToPlay ? this.renderVideo() : this.renderBanner()
                     ),
                     _react2.default.createElement(
                         'div',
@@ -1355,15 +1386,7 @@ var Home = (function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'row well' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'control-panel' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-xs-12 chat-box' },
-                            _react2.default.createElement(_Chatbox2.default, { peer: this.state.peer, conn: this.state.conn })
-                        )
-                    )
+                    this.state.readyToPlay ? this.renderChat() : this.renderForm()
                 )
             );
         }

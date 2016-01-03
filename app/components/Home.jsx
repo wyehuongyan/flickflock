@@ -167,21 +167,35 @@ class Home extends React.Component {
         );
     }
 
-    renderForm() {
+    renderBanner() {
         return (
             <div className="embed-responsive embed-responsive-16by9">
                 <div className='row'>
-                    <div className='col-xs-8 col-xs-offset-2'>
-                        <div className="well video-form form">
-                            <div className="form-group">
-                                <label htmlFor="video-url">Paste Youtube Link</label>
-                                <input type="text" ref="messageTextField" className="form-control input-lg" id="video-url" placeholder="(e.g. https://www.youtube.com/watch?v=IJNR2EpS0jw)" value={this.state.url} onChange={HomeActions.updateUrl} />
-                            </div>
-
-                            {this.state.url != '' ? this.renderSharingForm() : null}
-
-                        </div>
+                    <div className='col-xs-10 col-xs-offset-1'>
+                        <img className='banner-title' src='/img/flick_flock_web_banner_title.png' />
                     </div>
+                </div>
+
+                <div className='row'>
+                    <div className='col-xs-10 col-xs-offset-1'>
+                        <img className='banner' src='/img/flick_flock_web_banner.png' />
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    renderForm() {
+        return (
+            <div className="col-xs-8 col-lg-offset-2">
+                <div className="video-form form">
+                    <div className="form-group">
+                        <label htmlFor="video-url">Paste Youtube Link</label>
+                        <input type="text" ref="messageTextField" className="form-control input-lg" id="video-url" placeholder="(e.g. https://www.youtube.com/watch?v=IJNR2EpS0jw)" value={this.state.url} onChange={HomeActions.updateUrl} />
+                    </div>
+
+                    {this.state.url != '' ? this.renderSharingForm() : null}
+
                 </div>
             </div>
         );
@@ -192,6 +206,16 @@ class Home extends React.Component {
             <div className="form-group">
                 <label htmlFor="share-url">Share this with your friend</label>
                 <input type="text" className="form-control input-lg" id="share-url" value={this.state.shareUrl} />
+            </div>
+        );
+    }
+
+    renderChat() {
+        return (
+            <div className="control-panel">
+                <div className="col-xs-12 chat-box">
+                    <Chatbox peer={this.state.peer} conn={this.state.conn} />
+                </div>
             </div>
         );
     }
@@ -207,7 +231,7 @@ class Home extends React.Component {
                     </div>
 
                     <div className="col-xs-8 video-frame">
-                        {this.state.readyToPlay ? this.renderVideo() : this.renderForm()}
+                        {this.state.readyToPlay ? this.renderVideo() : this.renderBanner()}
                     </div>
 
                     <div className="col-xs-2">
@@ -217,11 +241,7 @@ class Home extends React.Component {
                     </div>
                 </div>
                 <div className='row well'>
-                    <div className="control-panel">
-                        <div className="col-xs-12 chat-box">
-                            <Chatbox peer={this.state.peer} conn={this.state.conn} />
-                        </div>
-                    </div>
+                    {this.state.readyToPlay ? this.renderChat() : this.renderForm()}
                 </div>
             </div>
         );
